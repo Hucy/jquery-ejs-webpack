@@ -11,12 +11,14 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
-  module:  [
+  module:  {
+    loaders:[
       {
         test: /\.less$/,
         loader: "style!css!less"
       }
-    ],
+    ]
+  },
   // eval-source-map is faster for development
   devtool: '#eval-source-map',
   plugins: [
